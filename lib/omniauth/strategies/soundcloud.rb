@@ -8,15 +8,17 @@ module OmniAuth
       option :name, "soundcloud"
 
       option :client_options, {
-        :site => 'https://api.soundcloud.com',
-        :authorize_url => '/connect',
-        :token_url => '/oauth2/token'
+        :site => 'https://secure.soundcloud.com',
+        :authorize_url => '/authorize',
+        :token_url => '/oauth/token'
       }
 
       option :access_token_options, {
         :header_format => 'OAuth %s',
         :param_name => 'access_token'
       }
+
+      option :pkce, true
 
       uid { raw_info['id'] }
 
